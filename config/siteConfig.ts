@@ -5,7 +5,7 @@ export const siteConfig = {
   name: user.name,
   title: user.name + " - " + user.role,
   description:
-    "generalist software engineer passionate about building impactful solutions.",
+    "Software engineer specializing in full-stack web development, AWS cloud infrastructure, and social media analytics. Building scalable applications with React, Next.js, and TypeScript.",
   url: "https://ankurgajurel.com.np",
   ogImage: "/og.png",
   links: {
@@ -25,10 +25,18 @@ export const siteConfig = {
     "Software Engineer",
     "Full Stack Developer",
     "Web Developer",
-    "Nepal",
+    "Frontend Developer",
+    "Backend Developer",
+    "AWS",
+    "Cloud Infrastructure",
+    "Social Media Analytics",
     "React",
     "Next.js",
     "TypeScript",
+    "JavaScript",
+    "Node.js",
+    "Web Applications",
+    "Scalable Applications",
   ],
 };
 
@@ -80,6 +88,12 @@ export const siteMetadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  alternates: {
+    canonical: siteConfig.url,
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
   icons: {
     icon: "/favicon.ico",

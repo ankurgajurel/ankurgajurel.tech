@@ -103,25 +103,25 @@ export const projects: Project[] = [
     },
     technologies: ["podcast"],
   },
-  {
-    id: 7,
-    name: "webshop emails",
-    date: "august, 2023",
-    collabs: [],
-    type: "design",
-    description: "email template design clone",
-    content:
-      "email template design tool. users can create and customize email templates for marketing campaigns.",
-    links: {
-      demo: "https://webshop-emails.vercel.app/",
-    },
-    technologies: ["email design"],
-  },
+  // {
+  //   id: 7,
+  //   name: "webshop emails",
+  //   date: "august, 2023",
+  //   collabs: [],
+  //   type: "design",
+  //   description: "email template design clone",
+  //   content:
+  //     "email template design tool. users can create and customize email templates for marketing campaigns.",
+  //   links: {
+  //     demo: "https://webshop-emails.vercel.app/",
+  //   },
+  //   technologies: ["email design"],
+  // },
   {
     id: 8,
     name: "cognistream",
     date: "fullstack",
-    collabs: ["shekharkoirala", "geeksambhu"],
+    collabs: ["shekharkoirala", "geeksambhu", "mgajurel"],
     type: "ai",
     description: "customer interviews with emotional depth analysis",
     content:

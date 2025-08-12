@@ -42,8 +42,12 @@ export default function Experience() {
                       {exp.company}
                     </a>
                   </div>
-                  <span className="text-sm text-gray-600">{exp.period}</span>
-                  <span className="text-sm text-gray-600">({exp.type})</span>
+                  {exp.period && (
+                    <span className="text-sm text-gray-600">{exp.period}</span>
+                  )}
+                  {exp.type && (
+                    <span className="text-sm text-gray-600">({exp.type})</span>
+                  )}
                 </div>
 
                 <p className="text-lg font-light leading-relaxed">

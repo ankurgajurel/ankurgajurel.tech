@@ -1,5 +1,8 @@
 export const user = {
   name: "ankur gajurel",
+  location: "bhaktapur, nepal",
+  timezone: "Asia/Kathmandu",
+  postalCode: "44600",
   role: "engineer",
   openForWork: true,
   toolsWebsite: "https://tools.ankurgajurel.tech",
@@ -7,7 +10,7 @@ export const user = {
     title: "",
     subtitle: "a generalist software engineer",
     userExcerpt:
-      "i build and maintain web applications. i work with aws, frontend, and backend. currently working with social media APIs; tiktok, instagram, linkedin, twitter.",
+      "i solve problems with code. currently tinkering around social media apis for analytics; tiktok, instagram and youtube.",
   },
   footer: {
     subtitle: "a generalist software engineer",
@@ -20,4 +23,5 @@ export const user = {
     calcom: "https://cal.com/gajurel",
   },
   playlist: "1YODNPvuFFJtpgvyxZnxYG",
+  hobbies: ["hiking", "travelling", "music", "guitar/piano", "coffee"],
 };

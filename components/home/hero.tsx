@@ -4,6 +4,7 @@ import { ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { user } from "@/data/general";
+import { cn } from "@/lib/utils";
 
 export default function Hero() {
   return (
@@ -17,12 +18,18 @@ export default function Hero() {
         >
           <div className="relative w-fit">
             <h2 className="text-6xl md:text-8xl">{user.name}</h2>
-            <a href={user.socials.calcom} target="_blank">
-              {user.openForWork && (
-                <p className="absolute -right-16 top-[50%] bottom-[50%] rotate-90 hover:underline text-xs">
-                  open for work
-                </p>
-              )}
+            <a
+              href={user.openForWork ? user.socials.calcom : "#"}
+              target={user.openForWork ? "_blank" : undefined}
+            >
+              <p
+                className={cn(
+                  "absolute -right-16 top-[50%] bottom-[50%] rotate-90 hover:underline text-xs",
+                  !user.openForWork && "line-through"
+                )}
+              >
+                open for work
+              </p>
             </a>
           </div>
           <p className="text-xl md:text-4xl font-bodoni font-extralight tracking-tighter">

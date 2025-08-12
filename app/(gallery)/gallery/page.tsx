@@ -27,7 +27,7 @@ export default async function Gallery() {
         {media.map((item) => (
           <div
             key={item.id}
-            className="mb-4 break-inside-avoid rounded-lg overflow-hidden bg-gray-100 group cursor-pointer relative"
+            className="mb-4 break-inside-avoid overflow-hidden bg-gray-100 group cursor-pointer relative"
           >
             {item.type === "image" ? (
               <img

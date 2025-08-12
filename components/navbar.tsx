@@ -4,8 +4,9 @@ import Link from "next/link";
 import Button from "./ui/button";
 import { useConsoleVisibleStore } from "@/store/console";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, type ComponentType } from "react";
 import { user } from "@/data/general";
+import { Github, Twitter } from "lucide-react";
 
 const NavItem = ({ label, link }: { label: string; link: string }) => {
   const isExternal = !link.startsWith("/");
@@ -37,27 +38,79 @@ const NavItem = ({ label, link }: { label: string; link: string }) => {
   );
 };
 
+type NavItemEntry = {
+  label: string;
+  link: string;
+  icon?: ComponentType<{ size?: number; className?: string }>;
+};
+
 export default function Navbar() {
   const { isVisible, setIsVisible } = useConsoleVisibleStore();
 
-  const navItems = [
+  const navItems: NavItemEntry[] = [
     { label: "home", link: "/" },
     { label: "gallery", link: "/gallery" },
-    { label: "twitter", link: user.socials.twitter },
-    { label: "github", link: user.socials.github },
-    { label: "cal.com", link: user.socials.calcom },
     { label: "resume", link: "/resume/resume.pdf" },
     { label: "tools", link: user.toolsWebsite },
+    { label: "cal.com", link: user.socials.calcom },
+    { label: "twitter", link: user.socials.twitter, icon: Twitter },
+    { label: "github", link: user.socials.github, icon: Github },
   ];
 
   return (
     <nav className="container mx-auto flex flex-col md:flex-row space-y-5 justify-between md:items-center p-4">
-      <div className="flex items-center flex-wrap gap-3 md:gap-5 lg:gap-10">
-        {navItems.map((item) => (
-          <NavItem key={item.label} {...item} />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 lg:gap-10">
+        <div className="flex items-center gap-3 md:gap-5 lg:gap-10">
+          {navItems
+            .filter((item) => !item.icon)
+            .map((item) => (
+              <NavItem key={item.label} {...item} />
+            ))}
+        </div>
+        <div className="flex items-center gap-2">
+          {navItems
+            .filter((item) => item.icon)
+            .map((item) => {
+              const Icon = item.icon!;
+              const isExternal = !item.link.startsWith("/");
+              if (isExternal) {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
+                    title={item.label}
+                    className="group inline-flex items-center justify-center p-1 rounded hover:opacity-80 transition-opacity"
+                  >
+                    <Icon
+                      size={18}
+                      className="transition-colors duration-200 group-hover:[&_path]:fill-current"
+                      aria-hidden="true"
+                    />
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={item.label}
+                  href={item.link}
+                  aria-label={item.label}
+                  title={item.label}
+                  className="group inline-flex items-center justify-center p-1 rounded hover:opacity-80 transition-opacity"
+                >
+                  <Icon
+                    size={18}
+                    className="transition-colors duration-200 group-hover:[&_path]:fill-current"
+                    aria-hidden="true"
+                  />
+                </Link>
+              );
+            })}
+        </div>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="gap-4">
         <Button
           variant="default"
           className="uppercase text-xs cursor-pointer"

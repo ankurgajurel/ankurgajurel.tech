@@ -26,7 +26,7 @@ export default function HomeProjectCard({ project }: { project: Project }) {
             onClick={(e) => e.stopPropagation()}
             className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1 group/collab"
           >
-            @{collab}
+            @{project.collabs.length > 1 ? collab.slice(0, 5) + "..." : collab}
           </a>
         ))}
       </div>
