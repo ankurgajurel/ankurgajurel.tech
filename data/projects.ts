@@ -117,17 +117,17 @@ export const projects: Project[] = [
   //   },
   //   technologies: ["email design"],
   // },
-  {
-    id: 8,
-    name: "cognistream",
-    date: "fullstack",
-    collabs: ["shekharkoirala", "geeksambhu", "mgajurel"],
-    type: "ai",
-    description: "customer interviews with emotional depth analysis",
-    content:
-      "ai-powered tool for analyzing customer interviews. uses sentiment analysis to understand emotional responses and feedback.",
-    technologies: ["ai", "analysis", "wip"],
-  },
+  // {
+  //   id: 8,
+  //   name: "cognistream",
+  //   date: "fullstack",
+  //   collabs: ["shekharkoirala", "geeksambhu", "mgajurel"],
+  //   type: "ai",
+  //   description: "customer interviews with emotional depth analysis",
+  //   content:
+  //     "ai-powered tool for analyzing customer interviews. uses sentiment analysis to understand emotional responses and feedback.",
+  //   technologies: ["ai", "analysis", "wip"],
+  // },
   {
     id: 9,
     name: "social media scheduler",

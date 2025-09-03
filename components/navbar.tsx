@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, type ComponentType } from "react";
 import { user } from "@/data/general";
 import { Github, Twitter } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 const NavItem = ({ label, link }: { label: string; link: string }) => {
   const isExternal = !link.startsWith("/");
@@ -58,8 +59,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="container mx-auto flex flex-col md:flex-row space-y-5 justify-between md:items-center p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 lg:gap-10">
+    <nav className="container mx-auto flex flex-col md:flex-row justify-center md:justify-between items-center space-y-3 space-x-2 p-4">
+      <div className="flex flex-col md:flex-row items-center gap-2 md:gap-10">
         <div className="flex items-center gap-3 md:gap-5 lg:gap-10">
           {navItems
             .filter((item) => !item.icon)
@@ -110,7 +111,8 @@ export default function Navbar() {
             })}
         </div>
       </div>
-      <div className="gap-4">
+      <div className="gap-4 space-x-2 flex items-center">
+        <ThemeToggle />
         <Button
           variant="default"
           className="uppercase text-xs cursor-pointer"

@@ -25,7 +25,7 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group border-b-[0.5px] border-black pb-12 last:border-0"
+              className="group border-b-[0.5px] border-foreground pb-12 last:border-0"
             >
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
@@ -43,10 +43,12 @@ export default function Experience() {
                     </a>
                   </div>
                   {exp.period && (
-                    <span className="text-sm text-gray-600">{exp.period}</span>
+                    <span className="text-sm text-foreground">{exp.period}</span>
                   )}
                   {exp.type && (
-                    <span className="text-sm text-gray-600">({exp.type})</span>
+                    <span className="text-sm text-foreground">
+                      ({exp.type})
+                    </span>
                   )}
                 </div>
 
@@ -58,7 +60,7 @@ export default function Experience() {
                   {exp.stacks.map((stack) => (
                     <span
                       key={stack}
-                      className="px-3 py-1 text-sm border-[0.5px] border-black hover:bg-gray-200 transition-colors duration-200"
+                      className="px-3 py-1 text-sm border-[0.5px] border-foreground hover:bg-card transition-colors duration-200"
                     >
                       {stack}
                     </span>

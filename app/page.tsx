@@ -5,7 +5,6 @@ import HomeProjects from "@/components/home/projects";
 import Skills from "@/components/home/skills";
 import Experience from "@/components/home/experience";
 import Blog from "@/components/home/blog";
-import SpotifyEmbed from "@/components/home/spotify-embed";
 
 export const metadata: Metadata = {
   ...siteMetadata,
@@ -34,7 +33,6 @@ export default function Home() {
         <Skills />
         <Experience />
         <Blog />
-        <SpotifyEmbed />
       </div>
     </main>
   );

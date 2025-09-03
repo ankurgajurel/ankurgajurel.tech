@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Hubot_Sans } from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/navbar";
 import Terminal from "@/components/terminal";
 import Footer from "@/components/footer";
@@ -9,6 +8,8 @@ import { siteMetadata, siteConfig } from "@/config/siteConfig";
 import { Analytics } from "@vercel/analytics/react";
 import { user } from "@/data/general";
 import { experiences } from "@/data/experience";
+import { Providers } from "@/providers";
+import "./globals.css";
 
 const hubotSans = Hubot_Sans({
   variable: "--font-hubot-sans",
@@ -52,7 +53,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -60,12 +61,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${hubotSans.variable} ${bodoni.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
-        <Terminal />
-        <ChatBubble />
-        <Analytics />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+          <Terminal />
+          <ChatBubble />
+          <Analytics />
+        </Providers>
       </body>
     </html>
   );

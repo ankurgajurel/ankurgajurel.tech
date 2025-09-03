@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="container p-4 border-t-[0.5px] border-black mt-20">
+    <footer className="container p-4 border-t-[0.5px] border-foreground mt-20">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ export default function Footer() {
           <Link href="/" className="text-2xl font-medium hover:underline">
             {user.name}
           </Link>
-          <p className="text-sm text-gray-600">{user.footer.subtitle}</p>
+          <p className="text-sm text-foreground">{user.footer.subtitle}</p>
         </motion.div>
 
         <motion.div
@@ -58,14 +58,14 @@ export default function Footer() {
                 key={link.name}
                 href={link.href}
                 target="_blank"
-                className="text-gray-600 hover:text-black transition-colors duration-200"
+                className="text-foreground hover:text-black transition-colors duration-200"
                 aria-label={link.name}
               >
                 <link.icon size={20} />
               </a>
             ))}
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-foreground">
             © {new Date().getFullYear()} {user.name}. all rights reserved.
           </p>
         </motion.div>

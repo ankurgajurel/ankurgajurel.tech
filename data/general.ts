@@ -19,7 +19,7 @@ export const user = {
     linkedin: "https://linkedin.com/in/ankurgajurel",
     twitter: "https://twitter.com/ankurgajurel",
     github: "https://github.com/ankurgajurel?tab=repositories",
-    mail: "mailto:ankur@gajurel.dev",
+    mail: "mailto:ankurgajurel02@gmail.com",
     calcom: "https://cal.com/gajurel",
   },
   playlist: "1YODNPvuFFJtpgvyxZnxYG",

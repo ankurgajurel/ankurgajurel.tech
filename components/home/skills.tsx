@@ -23,10 +23,10 @@ export default function HomeSkills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="border-[0.5px] border-black p-4"
+            className="border-[0.5px] border-foreground p-4"
           >
             <h3 className="text-xl font-medium mb-2">{skill.title}</h3>
-            <p className="text-sm text-gray-600">{skill.description}</p>
+            <p className="text-sm text-foreground">{skill.description}</p>
           </motion.div>
         ))}
       </div>

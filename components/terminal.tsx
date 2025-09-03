@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useConsoleVisibleStore } from "@/store/console";
 import { redirect } from "next/navigation";
+import { useTheme } from "next-themes";
 
 type Theme = {
   name: string;
@@ -110,6 +111,7 @@ const themes: Record<string, Theme> = {
 };
 
 export default function Terminal() {
+  const { theme } = useTheme();
   const [input, setInput] = useState("");
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [outputHistory, setOutputHistory] = useState<
@@ -117,7 +119,9 @@ export default function Terminal() {
   >([]);
   const [cursorPosition, setCursorPosition] = useState(0);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [currentTheme, setCurrentTheme] = useState<Theme>(themes["paper"]);
+  const [currentTheme, setCurrentTheme] = useState<Theme>(
+    theme === "dark" ? themes["night-owl"] : themes["paper"]
+  );
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(5);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -547,6 +551,10 @@ export default function Terminal() {
     }
   }, [isPlaying, volume]);
 
+  useEffect(() => {
+    setCurrentTheme(theme === "dark" ? themes["night-owl"] : themes["default"]);
+  }, [theme]);
+
   const hasPlayedSound = useRef(false);
 
   useEffect(() => {
@@ -669,7 +677,7 @@ export default function Terminal() {
           className={cn(
             "flex-1 overflow-auto p-4 font-mono text-sm",
             currentTheme.background,
-            "scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent"
+            "scrollbar-thin scrollbar-thumb-foreground scrollbar-track-transparent"
           )}
           onClick={focusInput}
         >
@@ -677,7 +685,7 @@ export default function Terminal() {
             <p className={cn("text-sm font-bold", currentTheme.prompt)}>
               Welcome to the CLI
             </p>
-            <p className={cn("text-xs opacity-80", currentTheme.text)}>
+            <p className={cn("text-xs opacity-80", currentTheme.prompt)}>
               Type &apos;help&apos; to see available commands
             </p>
           </div>
